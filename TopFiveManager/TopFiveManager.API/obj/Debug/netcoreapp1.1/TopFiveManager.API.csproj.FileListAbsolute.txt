@@ -7,3 +7,14 @@ D:\Git\TopFiveManager\TopFiveManager\TopFiveManager.API\obj\Debug\netcoreapp1.1\
 D:\Git\TopFiveManager\TopFiveManager\TopFiveManager.API\obj\Debug\netcoreapp1.1\TopFiveManager.API.AssemblyInfo.cs
 D:\Git\TopFiveManager\TopFiveManager\TopFiveManager.API\obj\Debug\netcoreapp1.1\TopFiveManager.API.dll
 D:\Git\TopFiveManager\TopFiveManager\TopFiveManager.API\obj\Debug\netcoreapp1.1\TopFiveManager.API.pdb
+D:\github\TopFiveManager\TopFiveManager\TopFiveManager.API\bin\Debug\netcoreapp1.1\TopFiveManager.API.deps.json
+D:\github\TopFiveManager\TopFiveManager\TopFiveManager.API\bin\Debug\netcoreapp1.1\TopFiveManager.API.runtimeconfig.json
+D:\github\TopFiveManager\TopFiveManager\TopFiveManager.API\bin\Debug\netcoreapp1.1\TopFiveManager.API.runtimeconfig.dev.json
+D:\github\TopFiveManager\TopFiveManager\TopFiveManager.API\bin\Debug\netcoreapp1.1\TopFiveManager.API.dll
+D:\github\TopFiveManager\TopFiveManager\TopFiveManager.API\bin\Debug\netcoreapp1.1\TopFiveManager.API.pdb
+D:\github\TopFiveManager\TopFiveManager\TopFiveManager.API\obj\Debug\netcoreapp1.1\TopFiveManager.API.csprojResolveAssemblyReference.cache
+D:\github\TopFiveManager\TopFiveManager\TopFiveManager.API\obj\Debug\netcoreapp1.1\TopFiveManager.API.AssemblyInfo.cs
+D:\github\TopFiveManager\TopFiveManager\TopFiveManager.API\obj\Debug\netcoreapp1.1\TopFiveManager.API.dll
+D:\github\TopFiveManager\TopFiveManager\TopFiveManager.API\obj\Debug\netcoreapp1.1\TopFiveManager.API.pdb
+D:\github\TopFiveManager\TopFiveManager\TopFiveManager.API\bin\Debug\netcoreapp1.1\TopFiveManager.DataAccess.dll
+D:\github\TopFiveManager\TopFiveManager\TopFiveManager.API\bin\Debug\netcoreapp1.1\TopFiveManager.DataAccess.pdb

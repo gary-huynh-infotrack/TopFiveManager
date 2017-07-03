@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using TopFiveManager.DataAccess.Models;
+using TopFiveManager.DataAccess.Repo;
 
 namespace TopFiveManager.API.Controllers
 {
@@ -39,6 +38,12 @@ namespace TopFiveManager.API.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+        }
+
+        [HttpGet("GetMyTopFives/{employeeId}")]
+        public IEnumerable<TopFive> GetMyTopFives(int employeeId)
+        {
+            return new TopFivesRepo().GetByUserId(employeeId);
         }
     }
 }
