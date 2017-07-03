@@ -4,20 +4,13 @@ import Home from '../components/Home'
 
 const mapStateToProps = (state, ownProps) =>{
     return {
-        list: state.personal
+        list: state.personal,
+        selected: state.selected
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        addRow: (topFive) => {   
-            var obj = {
-                "name": topFive,
-                "description": "sdfsdf",
-                "status": 1
-            } 
-            dispatch(add(obj));
-        },
         getTopFives: (id) => {
             dispatch(getTopFives(id));
         },

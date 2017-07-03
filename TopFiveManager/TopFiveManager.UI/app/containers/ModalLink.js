@@ -1,17 +1,18 @@
 import { connect } from 'react-redux'
-import { add, getTopFives, completeTask } from '../actions/index'
-import AddTopFive from '../components/AddTopFive'
+import { getTopFives } from '../actions/index'
+import Modal from '../components/Modal'
 
 
 const mapStateToProps = (state, ownProps) =>{
     return {
+        selected: state.selected,
         list: state.personal
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        getTopFives: (id) => {
+        getTopFive: (id) => {
             dispatch(getTopFives(id));
         },
         complete : (id) => {
@@ -23,4 +24,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(AddTopFive)
+)(Modal)

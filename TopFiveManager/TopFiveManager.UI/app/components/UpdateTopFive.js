@@ -1,8 +1,5 @@
 import React from 'react';
 
-import Addform from './Addform'
-import Select from 'react-select';
-import Multiselect from './common/Multiselect'
 
 export default class AddTopFive extends React.Component {
 
@@ -14,8 +11,6 @@ export default class AddTopFive extends React.Component {
         this.props.complete(id);
     }
 
-    
-
     render() {
         var { list } = this.props;
         return (
@@ -23,7 +18,7 @@ export default class AddTopFive extends React.Component {
             <div className="body">
                 <div className="ibox float-e-margins">
                     <div className="ibox-title">
-                        <h5>Add Top 5's</h5>
+                        <h5>Update Top</h5>
                         <div className="ibox-tools"><button type="button" className="btn btn-xs btn-primary"><i className="fa fa-arrow-left"></i>  Back</button></div>
                     </div>
                     <div className="ibox-content">
@@ -32,6 +27,7 @@ export default class AddTopFive extends React.Component {
                             <div className="form-group">
                                 <label className="col-md-3 control-label">Department</label>
                                 <div className="col-md-5">
+                             
                                     <select type="text" className="form-control">
                                         <option>Select a department..</option>
                                         <option>Development</option>

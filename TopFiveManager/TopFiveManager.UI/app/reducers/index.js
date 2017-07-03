@@ -7,7 +7,8 @@ function populateState(state,payload){
     var minify = payload.map( row => ({
         "name": row.name,
         "description": row.description,
-        "status": row.statusId
+        "status": row.statusId,
+        "id": row.id
     }))
 
     return minify;
@@ -20,7 +21,8 @@ function personal(state = initialState, action) {
         case "COMPLETE":
             return [...state, action.payload]     
         case "POPULATE_STATE":
-            return populateState(state, action.payload)
+            return action.payload
+            //return populateState(state, action.payload)
         default:
             return state
     };
@@ -35,8 +37,19 @@ function hierarchy(state = initialState, action){
     }
 }
 
+var selectedInitialState = -1
+function selected(state = selectedInitialState, action){
+    switch(action.type){
+        case 'SELECTED_TOPFIVE':
+            return action.payload
+        default: 
+            return state;
+    }
+}
+
 const App = combineReducers({
     personal,
-    hierarchy
+    hierarchy,
+    selected
 })
 export default App;

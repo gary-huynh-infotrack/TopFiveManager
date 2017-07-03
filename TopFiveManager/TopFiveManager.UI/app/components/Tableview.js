@@ -6,10 +6,15 @@ export default class Tableview extends React.Component {
         this.state = {
             newTopFive: ""
         }
+        this.handleClick = this.handleClick.bind(this)
     }
 
     componentDidMount(){
         this.props.getTopFives(1)
+    }
+
+    handleClick(data,index){
+        this.props.selectedTopFive(data.id)
     }
 
     topFiveRow(data, index) {
@@ -25,7 +30,7 @@ export default class Tableview extends React.Component {
                 status = "On Hold"
         }
         return (
-            <tr key={data+index} className= { status== "On Hold" ? "success" : ""}>
+            <tr data-toggle="modal" data-target="#myModal" onClick={() =>this.handleClick(data, index)} key={data+index} >
                 <td>{data.name}</td>
                 <td> {data.description}</td>
                 <td>{status}</td>

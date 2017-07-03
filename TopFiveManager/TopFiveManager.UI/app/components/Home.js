@@ -4,6 +4,7 @@ import Addform from './Addform'
 import Filterbar from './Filterbar'
 import TableviewLink from '../containers/TableviewLink'
 import ProgressRingLink from '../containers/ProgressRingLink'
+import Modal from '../containers/ModalLink'
 
 export default class Home extends React.Component {
 
@@ -20,6 +21,9 @@ export default class Home extends React.Component {
         return (
 
             <div className="body">
+                <div id="myModal" className="modal fade" role="dialog">
+                    <Modal/>
+                </div>
                 <div className="ibox float-e-margins">
                     <div className="ibox-title">
                         <h5>Top 5's</h5>

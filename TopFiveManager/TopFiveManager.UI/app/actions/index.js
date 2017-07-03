@@ -145,7 +145,12 @@ export function completeTask(id){
     }  
 }
 
-
+export function selectTopFive(id){
+    return {
+        type: "SELECTED_TOPFIVE",
+        payload: id
+    } 
+}
 
 function sampleData(){
    return [
@@ -161,7 +166,7 @@ function sampleData(){
     "authorId": 1,
     "statusId": 1,
     "departmentId": 1,
-    "departmentName": null
+    "departmentName": "Development"
   },
   {
     "id": 2,
@@ -175,7 +180,7 @@ function sampleData(){
     "authorId": 1,
     "statusId": 1,
     "departmentId": 1,
-    "departmentName": null
+    "departmentName": "Development"
   },
   {
     "id": 3,
@@ -189,7 +194,7 @@ function sampleData(){
     "authorId": 1,
     "statusId": 1,
     "departmentId": 1,
-    "departmentName": null
+    "departmentName": "Marketing"
   },
   {
     "id": 5,
@@ -203,7 +208,7 @@ function sampleData(){
     "authorId": 1,
     "statusId": 1,
     "departmentId": 1,
-    "departmentName": null
+    "departmentName": "Operations"
   }
 ]
 }
