@@ -1,15 +1,22 @@
 import { connect } from 'react-redux'
-import { add, getTopFives, completeTask } from '../actions/index'
+import { getAllHierarchy, updateTierStore } from '../actions/index'
 import Tree from '../components/Tree'
 
 const mapStateToProps = (state, ownProps) =>{
     return {
-        list: state.personal
+        list: state.hierarchy
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
+        getAllHierarchy: ()=>{
+            dispatch(getAllHierarchy());
+        },
+        updateTierStore: (data)=>{
+
+            dispatch(updateTierStore(data))
+        }
     }
 }
 

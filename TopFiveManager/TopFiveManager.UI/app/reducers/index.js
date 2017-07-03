@@ -26,7 +26,17 @@ function personal(state = initialState, action) {
     };
 };
 
+function hierarchy(state = initialState, action){
+    switch (action.type){
+        case 'POPULATE_TREE':
+            return action.payload
+        default:
+            return state;
+    }
+}
+
 const App = combineReducers({
     personal,
+    hierarchy
 })
 export default App;
