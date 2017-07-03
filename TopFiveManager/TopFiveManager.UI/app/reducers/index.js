@@ -6,7 +6,8 @@ var initialState = [];
 function populateState(state,payload){
     var minify = payload.map( row => ({
         "name": row.name,
-        "description": row.description
+        "description": row.description,
+        "status": row.statusId
     }))
 
     return minify;

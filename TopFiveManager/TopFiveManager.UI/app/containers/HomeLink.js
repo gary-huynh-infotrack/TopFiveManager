@@ -13,9 +13,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         addRow: (topFive) => {   
             var obj = {
                 "name": topFive,
-                "description": "sdfsdf"
+                "description": "sdfsdf",
+                "status": 1
             } 
-            dispatch(add(topFive));
+            dispatch(add(obj));
         },
         getTopFives: (id) => {
             dispatch(getTopFives(id));

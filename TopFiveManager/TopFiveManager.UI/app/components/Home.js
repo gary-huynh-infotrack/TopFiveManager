@@ -16,7 +16,11 @@ export default class Home extends React.Component {
 
     topFiveRow(data, index) {
         return (
-            <li onClick={() => this.complete(data+index)} key={index}>{data.name} - {data.description}</li>
+            <tr>
+                <td>{data.name}</td>
+                <td> {data.description}</td>
+                <td>{data.status}</td>
+            </tr>  
         )
     }
 
@@ -62,8 +66,35 @@ export default class Home extends React.Component {
                         Get
                     </button>   
                 </form>          
-                <p>John Citizen</p>
-                {this.topFiveList(list)}
+                
+                <table className="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.topFiveList(list)}                     
+                    </tbody>
+                </table>
+                <h3>John Citizen</h3>
+                <select className="form-control m-b" name="department">
+                    <option></option>
+                    <option>Development</option>
+                    <option>Marketing</option>
+                    <option>HelpDesk</option>
+                    <option>Property Services</option>
+                </select>
+
+                <select className="form-control m-b" name="team">
+                    <option></option>
+                    <option>Daniel</option>
+                    <option>Gary</option>
+                    <option>Greg</option>
+                </select>
+
             </div>
         )
     }
