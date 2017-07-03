@@ -66,7 +66,7 @@ namespace TopFiveManager.API.Controllers
         }
 
         [HttpPost("Update")]
-        public TopFive Update(NewTopFive topFive)
+        public TopFive Update(UpdateTopFive topFive)
         {
             return _repo.Update(topFive);
         }
@@ -75,6 +75,12 @@ namespace TopFiveManager.API.Controllers
         public TopFive Create(NewTopFive topFive)
         {
             return _repo.Create(topFive);
+        }
+
+        [HttpPost("UpdateStatus")]
+        public TopFive UpdateStatus(int id, int newStatusId)
+        {
+            return _repo.UpdateStatus(id, newStatusId);
         }
     }
 }

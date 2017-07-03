@@ -23,6 +23,7 @@ namespace TopFiveManager.DataAccess.Models
         string AuthorLastName { get; set; }
 
         public int StatusId { get; set; }
+        public DateTime LastStatusUpdate { get; set; }
 
         public int? DepartmentId { get; set; }
         public string DepartmentName { get; set; }

@@ -23,6 +23,7 @@ namespace TopFiveManager.DataAccess.Repo
             a.FirstName 'AuthorFirstName',
             a.LastName 'AuthorLastName',
             t.StatusId,
+            t.LastStatusUpdate,
             t.DepartmentId,
             d.Name 'DepartmentName'
             FROM TopFives t
@@ -97,21 +98,22 @@ namespace TopFiveManager.DataAccess.Repo
                 CreationDate = DateTime.Now,
                 AuthorId = topFive.AuthorId,
                 StatusId = topFive.StatusId,
+                LastStatusUpdate = DateTime.Now,
                 DepartmentId = topFive.DepartmentId
             };
 
             var id = Query(d => d.Query<int>(
                 @"
 INSERT INTO TopFives (
-Name,  Description,  ParentId,  ThirdId,  CreationDate,  AuthorId,  StatusId,  DepartmentId) VALUES (
-@Name, @Description, @ParentId, @ThirdId, @CreationDate, @AuthorId, @StatusId, @DepartmentId);
+Name,  Description,  ParentId,  ThirdId,  CreationDate,  AuthorId,  StatusId,  DepartmentId, LastStatusUpdate) VALUES (
+@Name, @Description, @ParentId, @ThirdId, @CreationDate, @AuthorId, @StatusId, @DepartmentId, @LastStatusUpdate);
 SELECT CAST(SCOPE_IDENTITY() AS INT)",
                 parameters)).Single();
 
             return GetByIds(new[] { id }).Single();
         }
 
-        public TopFive Update(NewTopFive topFive)
+        public TopFive Update(UpdateTopFive topFive)
         {
             var parameters = new
             {
@@ -119,18 +121,35 @@ SELECT CAST(SCOPE_IDENTITY() AS INT)",
                 Description = topFive.Description,
                 ParentId = topFive.ParentId,
                 AuthorId = topFive.AuthorId,
-                StatusId = topFive.StatusId,
                 DepartmentId = topFive.DepartmentId,
                 Id = topFive.Id
             };
             Query(d => d.Query<int>(
                 @"
 UPDATE TopFives
-SET Name = @Name, Description = @Description, ParentId = @ParentId, AuthorId = @AuthorId, StatusId = @StatusId, DepartmentId = @DepartmentId
+SET Name = @Name, Description = @Description, ParentId = @ParentId, AuthorId = @AuthorId, DepartmentId = @DepartmentId
 WHERE Id = @Id",
                 parameters));
 
             return GetByIds(new[] { topFive.Id }).Single();
+        }
+
+        public TopFive UpdateStatus(int id, int newStatusId)
+        {
+            var parameters = new
+            {
+                StatusId = newStatusId,
+                LastStatusUpdate = DateTime.Now,
+                Id = id
+            };
+            Query(d => d.Query<int>(
+                @"
+UPDATE TopFives
+SET StatusId = @StatusId, LastStatusUpdate = @LastStatusUpdate
+WHERE Id = @Id",
+                parameters));
+
+            return GetByIds(new[] { id }).Single();
         }
 
         public IEnumerable<TopFive> GetAll()
