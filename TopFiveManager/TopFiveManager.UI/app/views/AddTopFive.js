@@ -1,6 +1,6 @@
 import React from 'react';
 import HomeLink from '../containers/HomeLink'
-class TopFive extends React.Component {
+class AddTopFive extends React.Component {
 
     render() {
         return (
@@ -15,6 +15,9 @@ class TopFive extends React.Component {
                         <li className="active">
                             <strong>Top 5's</strong>
                         </li>
+                        <li className="active">
+                            <strong>Add</strong>
+                        </li>
                     </ol>
                 </div>
                 <div className="col-lg-2">
@@ -25,7 +28,7 @@ class TopFive extends React.Component {
             <div className="wrapper wrapper-content animated fadeIn">
                 <div className="row">
                     <div className="col-lg-12">                        
-                        <HomeLink/>
+                        <AddTopLink/>
                     </div>
                 </div>
             </div>   
@@ -35,4 +38,4 @@ class TopFive extends React.Component {
 
 }
 
-export default TopFive
+export default AddTopFive

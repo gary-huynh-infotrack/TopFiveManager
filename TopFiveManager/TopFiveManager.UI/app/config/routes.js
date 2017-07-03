@@ -4,6 +4,7 @@ import Blank from '../components/layouts/Blank';
 
 import DashboardView from '../views/Dashboard';
 import TopFiveView from '../views/TopFive';
+import AddTopFiveView from '../views/AddTopFive';
 
 import { Route, Router, IndexRedirect, browserHistory} from 'react-router';
 
