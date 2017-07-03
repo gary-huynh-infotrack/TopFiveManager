@@ -5,7 +5,7 @@ class Main extends React.Component {
 
     render() {
         return (
-            <div className="wrapper wrapper-content animated fadeInRight">
+            <div className="wrapper wrapper-content animated">
                 <div className="row">
                     <div className="col-lg-12">
                         <h1>

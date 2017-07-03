@@ -1,11 +1,13 @@
 import axios from 'axios'
 import thunk from 'redux-thunk';
 
+
 export function getTopFives(id){
     return (dispatch) => {  
         return callFetch(id)
             .then(response => {
-                return response.data
+                //return response.data
+                return sampleData();
             })
             .then(success => {
                 dispatch(updateStore(success))        
@@ -36,6 +38,51 @@ export function spinning(bool){
     }
 }
 
+
+function sampleData(){
+   return [  
+    {  
+        "id":1,
+        "name":"Top 5 Manager",
+        "description":"Implement the Top 5 Manager",
+        "parentId":0,
+        "thirdId":1,
+        "creationDate":"2017-07-03T12:22:31",
+        "authorId":1,
+        "statusId":1
+    },
+    {  
+        "id":2,
+        "name":"Front end",
+        "description":"Implement the front end Top 5 Manager",
+        "parentId":1,
+        "thirdId":1,
+        "creationDate":"2017-07-03T12:22:31",
+        "authorId":1,
+        "statusId":1
+    },
+    {  
+        "id":3,
+        "name":"Back end",
+        "description":"Implement the back end Top 5 Manager",
+        "parentId":1,
+        "thirdId":1,
+        "creationDate":"2017-07-03T12:22:31",
+        "authorId":1,
+        "statusId":1
+    },
+    {  
+        "id":5,
+        "name":"DB",
+        "description":"Implement the DB for the Top 5 Manager",
+        "parentId":3,
+        "thirdId":1,
+        "creationDate":"2017-07-03T12:22:31",
+        "authorId":1,
+        "statusId":1
+    }
+    ]
+}
 function callFetch(id){
     var baseUrl = 'localhost:61222';
     var relativeUrl = 'api/topfives'
@@ -48,15 +95,13 @@ function callFetch(id){
 function updateStore(data){
     try{
     console.log(data)
-    var string = JSON.stringify(data)
+
     } catch (ex){
         console.log(ex);
     }
- 
-    string = []
     return {
         type: 'POPULATE_STATE',
-        payload: string
+        payload: data
     }
 }
 

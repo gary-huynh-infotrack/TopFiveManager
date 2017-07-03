@@ -16,14 +16,13 @@ export default class Home extends React.Component {
 
     topFiveRow(data, index) {
         return (
-            <li onClick={() => this.complete(data+index)} key={index}>{data}</li>
+            <li onClick={() => this.complete(data+index)} key={index}>{data.name} - {data.description}</li>
         )
     }
 
     topFiveList(props) {
-        const listItems = props.map((data, index) => this.topFiveRow(data,index)
-
-        )
+        console.log(props)
+        const listItems = props.map((data, index) => this.topFiveRow(data,index))
         return listItems
     }
 
@@ -46,20 +45,23 @@ export default class Home extends React.Component {
         var { list } = this.props;
         return (
             <div className="hello">
-                <input
-                    type="text"
-                    value={this.state.newTopFive}
-                    onChange={this.handleChange.bind(this)}
-                    placeholder="Write a comment..." />
-                    
-                <button onClick={(e) => this.handleSubmit(e)} 
-                    type="submit">
-                    Add
-                </button>
-                <button onClick={(e) => this.handleGet(e)} 
-                    type="submit">
-                    Get
-                </button>             
+                <form className="form-horizontal">
+                    <input
+                        className="form-control"
+                        type="text"
+                        value={this.state.newTopFive}
+                        onChange={this.handleChange.bind(this)}
+                        placeholder="Write a comment..." />
+                        
+                    <button className="btn btn-primary" onClick={(e) => this.handleSubmit(e)} 
+                        type="submit">
+                        Add
+                    </button>
+                    <button className="btn btn-primary" onClick={(e) => this.handleGet(e)} 
+                        type="submit">
+                        Get
+                    </button>   
+                </form>          
                 <p>John Citizen</p>
                 {this.topFiveList(list)}
             </div>

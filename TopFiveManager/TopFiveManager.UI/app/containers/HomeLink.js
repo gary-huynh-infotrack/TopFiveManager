@@ -10,7 +10,11 @@ const mapStateToProps = (state, ownProps) =>{
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        addRow: (topFive) => {    
+        addRow: (topFive) => {   
+            var obj = {
+                "name": topFive,
+                "description": "sdfsdf"
+            } 
             dispatch(add(topFive));
         },
         getTopFives: (id) => {

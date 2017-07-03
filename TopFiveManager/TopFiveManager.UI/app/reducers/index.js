@@ -1,6 +1,16 @@
 import { combineReducers } from 'redux';
 
-var initialState = ['hello', 'two', 'tree'];
+var initialState = [];
+
+
+function populateState(state,payload){
+    var minify = payload.map( row => ({
+        "name": row.name,
+        "description": row.description
+    }))
+
+    return minify;
+}
 
 function personal(state = initialState, action) {
     switch (action.type) {
@@ -9,7 +19,7 @@ function personal(state = initialState, action) {
         case "COMPLETE":
             return [...state, action.payload]     
         case "POPULATE_STATE":
-            return action.payload  
+            return populateState(state, action.payload)
         default:
             return state
     };
