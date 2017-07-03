@@ -86,7 +86,7 @@ namespace TopFiveManager.DataAccess.Repo
 
         public TopFive Create(NewTopFive topFive)
         {
-            var thirdId = Query(d => d.Query<int>("SELECT Id FROM Thirds WHERE StartDate <= GETDATE() AND EndDate >= GETDATE()")).AsList().Single();
+            var thirdId = Query(d => d.Query<int>("SELECT Id FROM Thirds WHERE StartDate <= GETDATE() AND EndDate >= GETDATE()")).Single();
 
             var parameters = new
             {
@@ -109,6 +109,28 @@ SELECT CAST(SCOPE_IDENTITY() AS INT)",
                 parameters)).Single();
 
             return GetByIds(new[] { id }).Single();
+        }
+
+        public TopFive Update(NewTopFive topFive)
+        {
+            var parameters = new
+            {
+                Name = topFive.Name,
+                Description = topFive.Description,
+                ParentId = topFive.ParentId,
+                AuthorId = topFive.AuthorId,
+                StatusId = topFive.StatusId,
+                DepartmentId = topFive.DepartmentId,
+                Id = topFive.Id
+            };
+            Query(d => d.Query<int>(
+                @"
+UPDATE TopFives
+SET Name = @Name, Description = @Description, ParentId = @ParentId, AuthorId = @AuthorId, StatusId = @StatusId, DepartmentId = @DepartmentId
+WHERE Id = @Id",
+                parameters));
+
+            return GetByIds(new[] { topFive.Id }).Single();
         }
 
         public IEnumerable<TopFive> GetAll()
