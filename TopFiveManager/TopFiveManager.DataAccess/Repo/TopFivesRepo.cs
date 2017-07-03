@@ -23,6 +23,7 @@ namespace TopFiveManager.DataAccess.Repo
             a.FirstName 'AuthorFirstName',
             a.LastName 'AuthorLastName',
             t.StatusId,
+			s.Name 'Status',
             t.LastStatusUpdate,
             t.DepartmentId,
             d.Name 'DepartmentName'
@@ -30,6 +31,7 @@ namespace TopFiveManager.DataAccess.Repo
             join Thirds th on th.Id= t.ThirdId
             join Employees a on a.Id = t.AuthorId
             join Departments d on d.Id = t.DepartmentId
+			join TopFiveStatus s on t.StatusId = s.Id
             where t.Id in @Ids";
 
         public IEnumerable<TopFive> GetByIds(IEnumerable<int> ids)

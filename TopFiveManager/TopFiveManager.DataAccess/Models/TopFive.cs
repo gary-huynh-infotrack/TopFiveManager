@@ -19,10 +19,11 @@ namespace TopFiveManager.DataAccess.Models
         public DateTime CreationDate { get; set; }
 
         public int AuthorId { get; set; }
-        string AuthorFirstName { get; set; }
-        string AuthorLastName { get; set; }
+        public string AuthorFirstName { get; set; }
+        public string AuthorLastName { get; set; }
 
         public int StatusId { get; set; }
+        public string Status { get; set; }
         public DateTime LastStatusUpdate { get; set; }
 
         public int? DepartmentId { get; set; }
