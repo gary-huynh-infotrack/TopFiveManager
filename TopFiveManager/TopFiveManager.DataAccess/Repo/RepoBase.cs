@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace TopFiveManager.DataAccess.Repo
@@ -13,5 +15,15 @@ namespace TopFiveManager.DataAccess.Repo
         }
         
         protected IDbConnection Connection => new SqlConnection(connectionString);
+
+        protected IEnumerable<T> Query<T>(Func<IDbConnection, IEnumerable<T>> query)
+        {
+            using (IDbConnection dbConnection = Connection)
+            {
+                dbConnection.Open();
+
+                return query(dbConnection);
+            }
+        }
     }
 }

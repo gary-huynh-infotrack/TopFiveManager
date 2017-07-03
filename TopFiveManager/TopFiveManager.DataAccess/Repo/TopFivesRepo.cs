@@ -10,54 +10,46 @@ namespace TopFiveManager.DataAccess.Repo
     {
         public IEnumerable<TopFive> GetByEmployeeId(int employeeId, DateTime date)
         {
-            using (IDbConnection dbConnection = Connection)
+            var parameters = new
             {
-                dbConnection.Open();
+                EmployeeId = employeeId,
+                Date = date
+            };
+            return Query(d => d.Query<TopFive>(
+                "TopFives_GetByEmployeeId",
+                parameters,
+                commandType: CommandType.StoredProcedure));
+        }
 
-                var parameters = new
-                {
-                    EmployeeId = employeeId,
-                    Date = date
-                };
-                return dbConnection.Query<TopFive>(
-                    "TopFives_GetByEmployeeId",
-                    parameters,
-                    null, 
-                    true, 
-                    null,
-                    CommandType.StoredProcedure);
-            }
+        public IEnumerable<TopFive> GetByDepartmentId(int departmentId, DateTime date)
+        {
+            var parameters = new
+            {
+                DepartmentId = departmentId,
+                Date = date
+            };
+            return Query(d => d.Query<TopFive>(
+                "TopFives_GetByDepartmentId",
+                parameters,
+                commandType: CommandType.StoredProcedure));
         }
 
         public IEnumerable<TopFive> GetByStatusId(int statusId, DateTime date)
         {
-            using (IDbConnection dbConnection = Connection)
+            var parameters = new
             {
-                dbConnection.Open();
-
-                var parameters = new
-                {
-                    StatusId = statusId,
-                    Date = date
-                };
-                return dbConnection.Query<TopFive>(
-                    "TopFives_GetByStatusId",
-                    parameters,
-                    null,
-                    true,
-                    null,
-                    CommandType.StoredProcedure);
-            }
+                StatusId = statusId,
+                Date = date
+            };
+            return Query(d => d.Query<TopFive>(
+                "TopFives_GetByStatusId",
+                parameters,
+                commandType: CommandType.StoredProcedure));
         }
 
         public IEnumerable<TopFive> GetAll()
         {
-            using (IDbConnection dbConnection = Connection)
-            {
-                dbConnection.Open();
-
-                return dbConnection.Query<TopFive>("SELECT * FROM TopFives");
-            }
+            return Query(d => d.Query<TopFive>("SELECT * FROM TopFives"));
         }
     }
 }

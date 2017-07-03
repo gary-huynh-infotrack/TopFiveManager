@@ -23,6 +23,11 @@ namespace TopFiveManager.API.Controllers
             return _repo.GetByEmployeeId(employeeId, DateTime.Now);
         }
 
+        [HttpGet("GetByDepartmentId/{departmentId}")]
+        public IEnumerable<TopFive> GetByDepartmentId(int departmentId)
+        {
+            return _repo.GetByDepartmentId(departmentId, DateTime.Now);
+        }
 
         [HttpGet("GetByStatusId/{statusId}")]
         public IEnumerable<TopFive> GetByStatusId(int statusId)
@@ -30,5 +35,10 @@ namespace TopFiveManager.API.Controllers
             return _repo.GetByStatusId(statusId, DateTime.Now);
         }
 
+        [HttpPost("UpdateById")]
+        public TopFive UpdateById(TopFive topFive)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
