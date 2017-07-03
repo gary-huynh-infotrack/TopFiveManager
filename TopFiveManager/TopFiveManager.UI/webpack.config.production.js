@@ -37,7 +37,11 @@ var config = {
             'window.$': 'jquery'
 
         }),
-        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js', Infinity),
+        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js', Infinity),    
+        new HtmlWebpackPlugin({
+        title: "Piped Piper",
+        template: './index.html'
+    }),
     ],
     module: {
         noParse: [],
