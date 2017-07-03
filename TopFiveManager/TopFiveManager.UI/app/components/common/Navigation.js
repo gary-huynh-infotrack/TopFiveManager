@@ -35,11 +35,11 @@ class Navigation extends Component {
                                 IN+
                             </div>
                         </li>
-                        <li className={this.activeRoute("/main")}>
-                            <Link to="/main"><i className="fa fa-th-large"></i> <span className="nav-label">Main view</span></Link>
+                        <li className={this.activeRoute("/dashboard")}>
+                            <Link to="/dashboard"><i className="fa fa-th-large"></i> <span className="nav-label">Dashboard</span></Link>
                         </li>
-                        <li className={this.activeRoute("/minor")}>
-                            <Link to="/minor"><i className="fa fa-th-large"></i> <span className="nav-label">Minor view</span></Link>
+                        <li className={this.activeRoute("/topfives")}>
+                            <Link to="/topfives"><i className="fa fa-th-large"></i> <span className="nav-label">View Top 5</span></Link>
                         </li>
                     </ul>
 
