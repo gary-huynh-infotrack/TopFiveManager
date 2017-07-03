@@ -83,6 +83,19 @@ export default class AddTopFive extends React.Component {
 
                     
                 </div>
+                <div className="ibox float-e-margins">
+                    <div className="ibox-title">
+                        <h5>Comment</h5>
+                    </div>
+                    <div className="ibox-content">
+                            <div className="input-group m-b">
+                                <input type="text" className="form-control" />
+                                <span className="input-group-btn">
+                                    <button type="button" className="btn btn-primary">Post</button> 
+                                </span> 
+                            </div>
+                    </div>
+                </div>
             </div>
         )
     }

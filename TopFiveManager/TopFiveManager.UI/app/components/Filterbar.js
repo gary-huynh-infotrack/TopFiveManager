@@ -33,14 +33,6 @@ export default class Filterbar extends React.Component {
         return (     
                 <form className="form-horizontal">
                     <div className="row"> 
-                        <div className="col-md-4">
-                            <div className="input-group m-b">
-                                <input type="text" className="form-control" />
-                                <span className="input-group-btn">
-                                    <button type="button" className="btn btn-primary">Search</button> 
-                                </span> 
-                            </div>
-                        </div>
                         <div className="col-md-2">
                             <select className="form-control" name="status">
                                 <option>Filter by status</option>
@@ -67,6 +59,14 @@ export default class Filterbar extends React.Component {
                                 <option>Keith Development</option>
                                 <option>Ira - Development</option>
                             </select>
+                        </div>
+                        <div className="col-md-4">
+                            <div className="input-group m-b">
+                                <input type="text" className="form-control" />
+                                <span className="input-group-btn">
+                                    <button type="button" className="btn btn-primary">Search</button> 
+                                </span> 
+                            </div>
                         </div>
                     </div>
                 </form>    

@@ -34,7 +34,7 @@ class Navigation extends Component {
                                 </ul>
                             </div>
                             <div className="logo-element">
-                                IN+
+                                TOP 5
                             </div>
                         </li>
                         <li className={this.activeRoute("/dashboard")}>
