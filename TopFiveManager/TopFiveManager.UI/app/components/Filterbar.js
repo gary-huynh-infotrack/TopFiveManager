@@ -42,15 +42,15 @@ export default class Filterbar extends React.Component {
                             </div>
                         </div>
                         <div className="col-md-2">
-                            <select className="form-control" name="department">
-                                <option>Filter by department</option>
-                                <option>Development</option>
-                                <option>Marketing</option>
-                                <option>HelpDesk</option>
-                                <option>Property Services</option>
+                            <select className="form-control" name="status">
+                                <option>Filter by status</option>
+                                <option>Active</option>
+                                <option>Complete</option>
+                                <option>On Hold</option>
+                                <option>Cancelled</option>
                             </select>
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-md-3">
                             <select className="form-control" name="department">
                                 <option>Filter by department</option>
                                 <option>Development</option>
@@ -60,7 +60,7 @@ export default class Filterbar extends React.Component {
                             </select>
                         </div>
 
-                        <div className="col-md-2">
+                        <div className="col-md-3">
                             <select className="form-control">
                                 <option>Filter by team</option>
                                 <option>Wayne - Development</option>

@@ -178,7 +178,7 @@ function sampleData(){
     "thirdEndDate": "2017-10-31T23:59:59",
     "creationDate": "2017-07-03T12:22:31",
     "authorId": 1,
-    "statusId": 1,
+    "statusId": 2,
     "departmentId": 1,
     "departmentName": "Development"
   },
@@ -192,7 +192,7 @@ function sampleData(){
     "thirdEndDate": "2017-10-31T23:59:59",
     "creationDate": "2017-07-03T12:22:31",
     "authorId": 1,
-    "statusId": 1,
+    "statusId": 3,
     "departmentId": 1,
     "departmentName": "Marketing"
   },
@@ -206,7 +206,7 @@ function sampleData(){
     "thirdEndDate": "2017-10-31T23:59:59",
     "creationDate": "2017-07-03T12:22:31",
     "authorId": 1,
-    "statusId": 1,
+    "statusId": 4,
     "departmentId": 1,
     "departmentName": "Operations"
   }

@@ -19,15 +19,19 @@ export default class Tableview extends React.Component {
 
     topFiveRow(data, index) {
         var status = ""
-        switch (data.status){
+        switch (data.statusId){
             case(1):
                 status = "Active"
+                break;
             case(2):
                 status = "Complete"
+                break;
             case(3):
                 status = "Cancelled"
+                break;
             default:
                 status = "On Hold"
+                break;
         }
         return (
             <tr data-toggle="modal" data-target="#myModal" onClick={() =>this.handleClick(data, index)} key={data+index} >
