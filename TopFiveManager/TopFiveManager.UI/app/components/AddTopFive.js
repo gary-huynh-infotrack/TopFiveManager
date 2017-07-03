@@ -8,13 +8,29 @@ export default class AddTopFive extends React.Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+            comment: ''
+        }
+        this.handleSubmit = this.handleSubmit.bind(this)  
+        this.handleChange = this.handleChange.bind(this)
     }
 
-    complete(id) {
-        this.props.complete(id);
+    commentList(){
+        var { comments } = this.props
+                    
     }
 
-    
+    handleSubmit(e) {
+        console.log('hello')
+        //this.props.addCommentRow(this.state.comment)
+        this.setState({ comment : ''})    
+    }
+
+    handleChange(e) {
+        console.log('changed')
+        this.setState({ comment : e.target.value})    
+    }
+
 
     render() {
         var { list } = this.props;
@@ -89,9 +105,9 @@ export default class AddTopFive extends React.Component {
                     </div>
                     <div className="ibox-content">
                             <div className="input-group m-b">
-                                <input type="text" className="form-control" />
+                                <input type="text" className="form-control" value={this.state.comment} onChange={this.handleChange}/>
                                 <span className="input-group-btn">
-                                    <button type="button" className="btn btn-primary">Post</button> 
+                                    <button onClick={(e) => this.handleSubmit(e)}type="button" className="btn btn-primary" >Post</button> 
                                 </span> 
                             </div>
                     </div>

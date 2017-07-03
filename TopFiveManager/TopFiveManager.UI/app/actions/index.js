@@ -112,8 +112,8 @@ export function getTopFives(id){
     return (dispatch) => {  
         return callFetch(id)
             .then(response => {
-                //return response.data
-                return sampleData();
+                return response.data
+                //return sampleData();
             })
             .then(success => {
                 dispatch(updateStore(success))        
@@ -229,9 +229,19 @@ export function spinning(bool){
 export function callFetch(id){
     var baseUrl = 'localhost:61222';
     var relativeUrl = 'api/topfives'
-    var url = `${baseUrl}/{relativeUrl}/GetMyTopFives/${id}`
-    url = "https://jsonplaceholder.typicode.com/posts/1"
+    var url = `${baseUrl}/${relativeUrl}/GetMyTopFives/${id}`
+    //url = "https://jsonplaceholder.typicode.com/posts/1"
     var res = axios.get(url)
     return res;
 }
 
+
+
+//add comments
+
+export function addCommentRow(data){
+    return {
+        type: 'ADD_ROW',
+        payload:data
+    }
+}
