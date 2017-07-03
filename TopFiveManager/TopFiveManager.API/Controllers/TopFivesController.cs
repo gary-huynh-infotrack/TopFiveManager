@@ -72,9 +72,9 @@ namespace TopFiveManager.API.Controllers
         }
 
         [HttpPost("Create")]
-        public TopFive Create(TopFive topFive)
+        public TopFive Create(NewTopFive topFive)
         {
-            throw new NotImplementedException();
+            return _repo.Create(topFive);
         }
     }
 }

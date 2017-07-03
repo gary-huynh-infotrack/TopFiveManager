@@ -18,14 +18,21 @@ export default class Home extends React.Component {
     render() {
         var { list } = this.props;
         return (
-            <div className="body">
-            
-                <Filterbar/>
-                <div className="row">
-                <TableviewLink />
 
-  
-               </div>
+            <div className="body">
+                <div className="ibox float-e-margins">
+                    <div className="ibox-title">
+                        <h5>Top 5's</h5>
+                        <div className="ibox-tools"><button type="button" className="btn btn-xs btn-primary">Add Top 5</button></div>
+                    </div>
+                    <div className="ibox-content">
+                        <Filterbar/><br />
+                        <div className="row">
+                            <TableviewLink />
+                        </div>
+                    </div>
+                </div>
+     
             </div>
         )
     }

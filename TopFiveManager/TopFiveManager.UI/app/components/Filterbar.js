@@ -30,33 +30,46 @@ export default class Filterbar extends React.Component {
     }
     render() {
         var { list } = this.props;
-        return (      
-            <div className="row"> 
-                <div className="col-md-2">
-                <h3>John Citizen</h3>
-                </div>
-                <div className="col-md-10">
-                <form className="form-inline">
-                <div className="form-group">
-                <label htmlFor="department">By Department</label>
-                <select className="form-control" name="department">
-                    <option></option>
-                    <option>Development</option>
-                    <option>Marketing</option>
-                    <option>HelpDesk</option>
-                    <option>Property Services</option>
-                </select>
-                <label htmlFor ="team">By Team</label>
-                <select className="form-control col-md-4" name="team">
-                    <option></option>
-                    <option>Daniel</option>
-                    <option>Gary</option>
-                    <option>Greg</option>
-                </select>
-                </div>
-                </form>
-                </div>
-            </div>
+        return (     
+                <form className="form-horizontal">
+                    <div className="row"> 
+                        <div className="col-md-4">
+                            <div className="input-group m-b">
+                                <input type="text" className="form-control" />
+                                <span className="input-group-btn">
+                                    <button type="button" className="btn btn-primary">Search</button> 
+                                </span> 
+                            </div>
+                        </div>
+                        <div className="col-md-2">
+                            <select className="form-control" name="department">
+                                <option>Filter by department</option>
+                                <option>Development</option>
+                                <option>Marketing</option>
+                                <option>HelpDesk</option>
+                                <option>Property Services</option>
+                            </select>
+                        </div>
+                        <div className="col-md-2">
+                            <select className="form-control" name="department">
+                                <option>Filter by department</option>
+                                <option>Development</option>
+                                <option>Marketing</option>
+                                <option>HelpDesk</option>
+                                <option>Property Services</option>
+                            </select>
+                        </div>
+
+                        <div className="col-md-2">
+                            <select className="form-control">
+                                <option>Filter by team</option>
+                                <option>Wayne - Development</option>
+                                <option>Keith Development</option>
+                                <option>Ira - Development</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>    
         )
     }
 }

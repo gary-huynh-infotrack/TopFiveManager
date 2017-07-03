@@ -14,10 +14,7 @@ class TopFive extends React.Component {
                         <HomeLink/>
                     </div>
                 </div>
-            </div>
-
-
-            
+            </div>     
         )
     }
 
