@@ -23,7 +23,7 @@ namespace TopFiveManager.DataAccess.Repo
             a.LastName 'AuthorLastName',
             t.StatusId,
             t.DepartmentId,
-            d.Name 'Department'
+            d.Name 'DepartmentName'
             FROM TopFives t
             join Thirds th on th.Id= t.ThirdId
             join Employees a on a.Id = t.AuthorId
@@ -85,6 +85,7 @@ namespace TopFiveManager.DataAccess.Repo
 
         public IEnumerable<TopFive> GetAll()
         {
+            // doesn't make sure that it's the current third
             var ids = Query(d => d.Query<int>("SELECT Id FROM TopFives"));
 
             return GetByIds(ids);
