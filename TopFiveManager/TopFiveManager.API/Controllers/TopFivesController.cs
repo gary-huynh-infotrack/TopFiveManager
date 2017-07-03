@@ -23,7 +23,7 @@ namespace TopFiveManager.API.Controllers
         {
             var allTopFives = _repo.GetAll().ToList();
 
-            if (!allTopFives.Any(t=>t.ParentId == null))
+            if (!allTopFives.Any(t => t.ParentId == null))
             {
                 throw new Exception("No root top 5s found");
             }
@@ -65,16 +65,22 @@ namespace TopFiveManager.API.Controllers
             return _repo.GetByStatusId(statusId, DateTime.Now);
         }
 
-        [HttpPost("UpdateById")]
-        public TopFive UpdateById(TopFive topFive)
+        [HttpPost("Update")]
+        public TopFive Update(UpdateTopFive topFive)
         {
-            throw new NotImplementedException();
+            return _repo.Update(topFive);
         }
 
         [HttpPost("Create")]
         public TopFive Create(NewTopFive topFive)
         {
             return _repo.Create(topFive);
+        }
+
+        [HttpPost("UpdateStatus")]
+        public TopFive UpdateStatus(int id, int newStatusId)
+        {
+            return _repo.UpdateStatus(id, newStatusId);
         }
     }
 }
