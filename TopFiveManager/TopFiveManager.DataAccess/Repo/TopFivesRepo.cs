@@ -85,7 +85,9 @@ namespace TopFiveManager.DataAccess.Repo
 
         public IEnumerable<TopFive> GetAll()
         {
-            return Query(d => d.Query<TopFive>("SELECT * FROM TopFives"));
+            var ids = Query(d => d.Query<int>("SELECT Id FROM TopFives"));
+
+            return GetByIds(ids);
         }
     }
 }
