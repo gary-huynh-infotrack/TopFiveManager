@@ -44,6 +44,11 @@ class Navigation extends Component {
                         <li className={this.activeRoute("/treeview")}>
                             <Link to="/treeview"><i className="fa fa-tree"></i> <span className="nav-label">Tree View</span></Link>
                         </li>
+                        <li className={this.activeRoute("/addtopfiveview")}>
+                            <Link to="/addtopfiveview"><i className="fa fa-plus"></i> <span className="nav-label">Add New Top 5</span></Link>
+                        </li>
+
+                            
                     </ul>
 
             </nav>

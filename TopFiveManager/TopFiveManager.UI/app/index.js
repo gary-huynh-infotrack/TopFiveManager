@@ -11,6 +11,7 @@ import './../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './../node_modules/font-awesome/css/font-awesome.css'
 import './../node_modules/animate.css/animate.min.css'
 import './../public/styles/style.css'
+import 'react-select/dist/react-select.css';
 
 import promiseMiddleware from 'redux-promise-middleware';
 

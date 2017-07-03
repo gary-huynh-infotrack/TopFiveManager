@@ -48,6 +48,7 @@
     "react-pace": "^1.0.0",
     "react-redux": "^5.0.5",
     "react-router": "^2.7.0",
+    "react-select": "^1.0.0-rc.5",
     "react-sortable-tree": "^0.1.19",
     "redux": "^3.7.1",
     "redux-promise-middleware": "^4.3.0",

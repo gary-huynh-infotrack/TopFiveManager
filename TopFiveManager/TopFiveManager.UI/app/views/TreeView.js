@@ -16,4 +16,4 @@ class TreeView extends React.Component {
 
 }
 
- TreeView
+export default TreeView

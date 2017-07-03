@@ -16,6 +16,7 @@ export default (
             <Route path="dashboard" component={DashboardView}> </Route>
             <Route path="topfives" component={TopFiveView}> </Route>
              <Route path="treeview" component={TreeView}> </Route>
+            <Route path="addtopfiveview" component={AddTopFiveView}> </Route>
         </Route>
     </Router>
 

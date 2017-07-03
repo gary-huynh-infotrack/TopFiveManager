@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { add, getTopFives, completeTask } from '../actions/index'
-import Home from '../components/Home'
+import AddTopFive from '../components/AddTopFive'
+
 
 const mapStateToProps = (state, ownProps) =>{
     return {

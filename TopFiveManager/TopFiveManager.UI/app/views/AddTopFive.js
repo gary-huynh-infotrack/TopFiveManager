@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeLink from '../containers/HomeLink'
+import AddTopFiveLink from '../containers/AddTopFiveLink'
 class AddTopFive extends React.Component {
 
     render() {
@@ -28,7 +28,7 @@ class AddTopFive extends React.Component {
             <div className="wrapper wrapper-content animated fadeIn">
                 <div className="row">
                     <div className="col-lg-12">                        
-                        <AddTopLink/>
+                        <AddTopFiveLink/>
                     </div>
                 </div>
             </div>   
@@ -38,4 +38,4 @@ class AddTopFive extends React.Component {
 
 }
 
-export default AddTopFive
+export default AddTopFiveLink
