@@ -65,10 +65,10 @@ namespace TopFiveManager.API.Controllers
             return _repo.GetByStatusId(statusId, DateTime.Now);
         }
 
-        [HttpPost("UpdateById")]
-        public TopFive UpdateById(TopFive topFive)
+        [HttpPost("Update")]
+        public TopFive Update(NewTopFive topFive)
         {
-            throw new NotImplementedException();
+            return _repo.Update(topFive);
         }
 
         [HttpPost("Create")]
