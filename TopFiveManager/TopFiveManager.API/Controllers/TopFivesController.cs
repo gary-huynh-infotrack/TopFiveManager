@@ -23,7 +23,7 @@ namespace TopFiveManager.API.Controllers
         {
             var allTopFives = _repo.GetAll().ToList();
 
-            if (!allTopFives.Any(t=>t.ParentId == null))
+            if (!allTopFives.Any(t => t.ParentId == null))
             {
                 throw new Exception("No root top 5s found");
             }
