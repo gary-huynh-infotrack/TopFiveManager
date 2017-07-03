@@ -3,6 +3,7 @@ import React from 'react';
 import Addform from './Addform'
 import Filterbar from './Filterbar'
 import TableviewLink from '../containers/TableviewLink'
+import ProgressRingLink from '../containers/ProgressRingLink'
 
 export default class Home extends React.Component {
 
@@ -22,6 +23,8 @@ export default class Home extends React.Component {
                 <Filterbar/>
                 <div className="row">
                 <TableviewLink />
+
+  
                </div>
             </div>
         )
