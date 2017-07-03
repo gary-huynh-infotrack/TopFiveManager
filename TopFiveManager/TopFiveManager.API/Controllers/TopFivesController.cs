@@ -14,6 +14,7 @@ namespace TopFiveManager.API.Controllers
         [HttpGet("")]
         public IEnumerable<TopFive> GetAll()
         {
+            var x = _repo.GetByIds(new int[] { 1, 3, 5 });
             return _repo.GetAll();
         }
 
@@ -37,6 +38,12 @@ namespace TopFiveManager.API.Controllers
 
         [HttpPost("UpdateById")]
         public TopFive UpdateById(TopFive topFive)
+        {
+            throw new NotImplementedException();
+        }
+
+        [HttpPost("Create")]
+        public TopFive Create(TopFive topFive)
         {
             throw new NotImplementedException();
         }
