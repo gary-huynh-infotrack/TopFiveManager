@@ -49,13 +49,52 @@ export default class Home extends React.Component {
         var { list } = this.props;
         return (
             <div className="hello">
+                
                 <form className="form-horizontal">
-                    <input
+
+                <div className="row">
+                    <div className="col-md-4">
+                        <input
                         className="form-control"
                         type="text"
                         value={this.state.newTopFive}
                         onChange={this.handleChange.bind(this)}
                         placeholder="Write a comment..." />
+                    </div>
+
+                    <div className="col-md-1">
+                        <button className="btn btn-primary" onClick={(e) => this.handleSubmit(e)} 
+                            type="submit">
+                            Search
+                        </button>
+                    </div>
+
+                    <div className="col-md-2">
+                        <select className="form-control m-b" name="department">
+                            <option>Filter by department</option>
+                            <option>Development</option>
+                            <option>Marketing</option>
+                            <option>HelpDesk</option>
+                            <option>Property Services</option>
+                        </select>
+                    </div>
+                    <div className="col-md-2">
+                        <select className="form-control m-b" name="team">
+                            <option>Filter by team</option>
+                            <option>Daniel</option>
+                            <option>Gary</option>
+                            <option>Greg</option>
+                        </select>
+                    </div>
+                    <div className="col-md-1">
+                        <button className="btn btn-primary" onClick={(e) => this.handleSubmit(e)} 
+                            type="submit">
+                            Add Top 5
+                        </button>
+                    </div>
+                </div>
+
+                   
                         
                     <button className="btn btn-primary" onClick={(e) => this.handleSubmit(e)} 
                         type="submit">
@@ -79,21 +118,11 @@ export default class Home extends React.Component {
                         {this.topFiveList(list)}                     
                     </tbody>
                 </table>
-                <h3>John Citizen</h3>
-                <select className="form-control m-b" name="department">
-                    <option></option>
-                    <option>Development</option>
-                    <option>Marketing</option>
-                    <option>HelpDesk</option>
-                    <option>Property Services</option>
-                </select>
 
-                <select className="form-control m-b" name="team">
-                    <option></option>
-                    <option>Daniel</option>
-                    <option>Gary</option>
-                    <option>Greg</option>
-                </select>
+
+
+
+
 
             </div>
         )

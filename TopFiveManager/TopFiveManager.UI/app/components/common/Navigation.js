@@ -27,7 +27,7 @@ class Navigation extends Component {
                                 <a data-toggle="dropdown" className="dropdown-toggle" href="#">
                             <span className="clear"> <span className="block m-t-xs"> <strong className="font-bold">Example user</strong>
                              </span> <span className="text-muted text-xs block">Example position<b className="caret"></b></span> </span> </a>
-                                <ul className="dropdown-menu animated fadeInRight m-t-xs">
+                                <ul className="dropdown-menu animated fadeIn m-t-xs">
                                     <li><a href="#"> Logout</a></li>
                                 </ul>
                             </div>
@@ -36,13 +36,12 @@ class Navigation extends Component {
                             </div>
                         </li>
                         <li className={this.activeRoute("/main")}>
-                            <Link to="/main"><i className="fa fa-th-large"></i> <span className="nav-label">Main view</span></Link>
+                            <Link to="/main"><i className="fa fa-th-large"></i> <span className="nav-label">Top 5s</span></Link>
                         </li>
                         <li className={this.activeRoute("/minor")}>
                             <Link to="/minor"><i className="fa fa-th-large"></i> <span className="nav-label">Minor view</span></Link>
                         </li>
                     </ul>
-
             </nav>
         )
     }
