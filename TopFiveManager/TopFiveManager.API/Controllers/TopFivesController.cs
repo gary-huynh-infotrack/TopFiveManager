@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace TopFiveManager.API.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class TopFivesController : Controller
     {
         // GET api/values
         [HttpGet]
