@@ -20,7 +20,7 @@ namespace TopFiveManager.API.Controllers
         [HttpGet("GetByEmployeeId/{employeeId}")]
         public IEnumerable<TopFive> GetByEmployeeId(int employeeId)
         {
-            return _repo.GetByUserId(employeeId, DateTime.Now);
+            return _repo.GetByEmployeeId(employeeId, DateTime.Now);
         }
 
 
