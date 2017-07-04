@@ -16,5 +16,10 @@ namespace TopFiveManager.DataAccess.Repo
         {
             return Query(d => d.Query<Employee>("SELECT * FROM Employees WHERE Id = @Id", new { Id = id })).Single();
         }
+
+        public IEnumerable<Employee> GetByDepartmentId(int departmentId)
+        {
+            return Query(d => d.Query<Employee>("SELECT * FROM Employees WHERE DepartmentId = @DepartmentId", new { DepartmentId = departmentId }));
+        }
     }
 }

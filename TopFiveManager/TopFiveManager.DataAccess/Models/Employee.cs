@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace TopFiveManager.DataAccess.Models
 {
@@ -8,5 +9,12 @@ namespace TopFiveManager.DataAccess.Models
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
+        public List<TopFive> TopFives { get; set; }
+
+        public Employee()
+        {
+            TopFives = new List<TopFive>();
+        }
     }
 }
