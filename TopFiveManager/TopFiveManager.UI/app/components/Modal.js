@@ -18,12 +18,14 @@ export default class Modal extends React.Component {
     render() {
 
         var { selected, list } = this.props;
-        if (selected == -1) return (
+
+        if (list == null || list.length == 0 || selected == -1) return (
             <div className="modal-dialog">
             </div>
         )
-
+        console.log(selected, list)
         var content = list.find(title => title.id == selected)
+
         var s = new Date(content.thirdStartDate);
         var f = new Date(content.thirdEndDate);
         var dateStart = `${s.getDate()}/${s.getMonth()+1}/${s.getFullYear()}`

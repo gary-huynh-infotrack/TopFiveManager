@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { add, getTopFives, completeTask, selectTopFive } from '../actions/index'
+import { add, getTopFives, completeTask, selectTopFive, getTopFiveByList } from '../actions/index'
 import Tableview from '../components/Tableview'
 
 const mapStateToProps = (state, ownProps) =>{
@@ -26,7 +26,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         },
         selectedTopFive : (id) =>{
             dispatch(selectTopFive(id))
-        }
+        },
+        getTopFiveList: () => {
+            dispatch(getTopFiveByList());
+        },
     }
 }
 

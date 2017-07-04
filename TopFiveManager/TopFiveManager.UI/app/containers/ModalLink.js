@@ -6,14 +6,14 @@ import Modal from '../components/Modal'
 const mapStateToProps = (state, ownProps) =>{
     return {
         selected: state.selected,
-        list: state.personal
+        list: state.all
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        getTopFive: (id) => {
-            dispatch(getTopFives(id));
+        getTopFiveList: () => {
+            dispatch(getTopFiveByList());
         },
         complete : (id) => {
             dispatch(completeTask(id))

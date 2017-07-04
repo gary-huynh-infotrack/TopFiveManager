@@ -11,6 +11,7 @@ export default class Tableview extends React.Component {
 
     componentDidMount(){
         this.props.getTopFives(1)
+        this.props.getTopFiveList() 
     }
 
     handleClick(data,index){
@@ -43,26 +44,39 @@ export default class Tableview extends React.Component {
     }
 
 
-    topFiveList(props) {
-        const listItems = props.map((data, index) => this.topFiveRow(data,index))
+
+    topFiveBlock(props){
+        const listItems = props.topFives.map((data,index) =>  this.topFiveRow(data,index)) 
         return listItems
     }
-    
-        render() {
+
+    topFiveList(props) {
+        const listItems = props.map((data, index) => (
+            <div key= {'list-'+data+index} >
+            <h3>{data.firstName + ' ' +data.lastName}</h3>
+            <table className="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.topFiveBlock(data)}                     
+                    </tbody>
+            </table>
+            <br/>
+            </div>
+        ))
+        return listItems
+    }
+    render() {
         var { list } = this.props;
         return (     
-            <table className="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.topFiveList(list)}                     
-                </tbody>
-            </table>
+            <div>
+                {this.topFiveList(list)}
+            </div>
         )
     }
 }

@@ -21,13 +21,11 @@ export default class AddTopFive extends React.Component {
     }
 
     handleSubmit(e) {
-        console.log('hello')
         //this.props.addCommentRow(this.state.comment)
         this.setState({ comment : ''})    
     }
 
     handleChange(e) {
-        console.log('changed')
         this.setState({ comment : e.target.value})    
     }
 
@@ -93,6 +91,7 @@ export default class AddTopFive extends React.Component {
                                     </div>
                                  </div>
                             </div>
+                            
 
                         </form>
                     </div> 

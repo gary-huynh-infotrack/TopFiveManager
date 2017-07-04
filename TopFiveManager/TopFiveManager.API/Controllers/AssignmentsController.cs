@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TopFiveManager.DataAccess.Models;
 using TopFiveManager.DataAccess.Repo;
+using Microsoft.AspNetCore.Cors;
 
 namespace TopFiveManager.API.Controllers
 {
@@ -13,6 +14,7 @@ namespace TopFiveManager.API.Controllers
         private AssignmentRepo _assignmentRepo = new AssignmentRepo();
         private TopFivesRepo _topFivesRepo = new TopFivesRepo();
 
+        [EnableCors("MyPolicy")]
         [HttpGet("GetAll")]
         public IEnumerable<Employee> GetAll()
         {
@@ -23,6 +25,7 @@ namespace TopFiveManager.API.Controllers
             return employees;
         }
 
+        [EnableCors("MyPolicy")]
         [HttpGet("GetByEmployeeId/{employeeId}")]
         public Employee GetByEmployeeId(int employeeId)
         {
@@ -33,6 +36,7 @@ namespace TopFiveManager.API.Controllers
             return employees.FirstOrDefault();
         }
 
+        [EnableCors("MyPolicy")]
         [HttpGet("GetByDepartmentId/{departmentId}")]
         public IEnumerable<Employee> GetByDepartmentId(int departmentId)
         {
@@ -43,6 +47,7 @@ namespace TopFiveManager.API.Controllers
             return employees;
         }
 
+        [EnableCors("MyPolicy")]
         [HttpGet("GetByTopFiveStatusId/{topFiveStatusId}")]
         public IEnumerable<Employee> GetByTopFiveStatusId(int topFiveStatusId)
         {

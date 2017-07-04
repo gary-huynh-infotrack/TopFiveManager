@@ -1,13 +1,14 @@
 import axios from 'axios'
 import thunk from 'redux-thunk';
 
+var baseUrl = 'http://localhost:61222';
 
 export function getAllHierarchy(){
     return (dispatch) => {  
-        return callFetch(1)
+        return GetHierarchy()
             .then(response => {
-                //return response.data
-                return sampleTierData();
+                return response.data
+                //return sampleTierData();
             })
             .then(data => {  
                 dispatch(updateTierStore(restructureTree(data)))        
@@ -99,10 +100,24 @@ function sampleTierData(){
 }]
 }
 
+export function getTopFiveByList(){
+    return (dispatch) => {  
+        return GetAllList()
+            .then(response => {
+                return response.data
+            })
+            .then(success => {
+                dispatch(updateListStore(success))        
+            })
+            .catch(error => dispatch(errorSomething(error)))
+            .then(()=>dispatch(spinning(false)))
+    }
+}
+
 
 export function getTopFives(id){
     return (dispatch) => {  
-        return callFetch(id)
+        return GetAll()
             .then(response => {
                 return response.data
                 //return sampleData();
@@ -118,6 +133,13 @@ export function getTopFives(id){
 function updateStore(data){
     return {
         type: 'POPULATE_STATE',
+        payload: data
+    }
+}
+
+function updateListStore(data){
+    return {
+        type: 'POPULATE_STATE_LIST',
         payload: data
     }
 }
@@ -218,17 +240,35 @@ export function spinning(bool){
     }
 }
 
+export function GetAll(id){
+    var relativeUrl = 'api/Assignments'
+    var url = `${baseUrl}/${relativeUrl}/GetAll`
+
+    var res = axios.get(url)
+    return res;
+}
+
+export function GetAllList(){
+    var relativeUrl = 'api/TopFives'
+    var url = `${baseUrl}/${relativeUrl}`
+    var res = axios.get(url)
+    return res;
+}
+
 export function callFetch(id){
-    var baseUrl = 'http://localhost:61222';
     var relativeUrl = 'api/topfives'
     var url = `${baseUrl}/${relativeUrl}/GetByEmployeeId/${id}`
-    //url = "https://jsonplaceholder.typicode.com/posts/1"
-    var res = axios.get(url
-    )
+    var res = axios.get(url)
     return res;
 }
 
 
+export function GetHierarchy(){
+    var relativeUrl = 'api/topfives'
+    var url = `${baseUrl}/${relativeUrl}/GetAllWithHierarchies`
+    var res = axios.get(url)
+    return res;
+}
 
 //add comments
 

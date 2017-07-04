@@ -40,7 +40,7 @@ var config = {
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js', Infinity),    
         new HtmlWebpackPlugin({
         title: "Piped Piper",
-        template: './index.html'
+        template: './public/index.html'
     }),
     ],
     module: {

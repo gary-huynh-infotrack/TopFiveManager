@@ -115,15 +115,11 @@ data3  = {
                 </div>
             </div>
             <div className="row">
-            <div className="col-lg-8">
+            <div className="col-lg-6">
                 <div className="ibox float-e-margins">
                     <div className="ibox-content">
                         <div>
-                            <span className="pull-right text-right">
-                            <small>Average value of sales in the past month in: <strong>United states</strong></small>
-                                <br/>
-                                All sales: 162,862
-                            </span>
+    
                             <h2 className="no-margins">
                                 All Top 5's
                             </h2>
@@ -131,28 +127,13 @@ data3  = {
                         </div>
                         <div className="m-t-sm">
                             <div className="row">
-                                <div className="col-md-8">
+                                <div className="col-md-12">
                        
                                     <Line data={this.data2} />                                
                                 </div>
                                 <div className="col-md-4">
-                                    <ul className="stat-list m-t-lg">
-                                        <li>
-                                            <h2 className="no-margins">2,346</h2>
-                                            <small>Total orders in period</small>
-                                            <div className="progress progress-mini">
-                                                <div className="progress-bar"></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <h2 className="no-margins ">4,422</h2>
-                                            <small>Orders in last month</small>
-                                            
-                                            <div className="progress progress-mini">
-                                                <div className="progress-bar"></div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                         
+     
                                 </div>
                             </div>
 
@@ -161,7 +142,7 @@ data3  = {
                 </div>
             
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-6">
                 <div className="ibox float-e-margins">
                      <div className="ibox-title">
                         <h3>Distribution by Label</h3>

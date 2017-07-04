@@ -56,10 +56,19 @@ function comment(state = {}, action){
     }
 }
 
+function all(state = [], action){
+    switch(action.type){
+        case 'POPULATE_STATE_LIST':
+            return action.payload
+        default:
+            return state
+    }
+}
 const App = combineReducers({
     personal,
     hierarchy,
     selected,
-    comment
+    comment,
+    all
 })
 export default App;

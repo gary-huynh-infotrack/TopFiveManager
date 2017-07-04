@@ -13,12 +13,13 @@ namespace TopFiveManager.API.Controllers
     {
         private TopFivesRepo _repo = new TopFivesRepo();
 
+        [EnableCors("MyPolicy")]
         [HttpGet("")]
         public IEnumerable<TopFive> GetAll()
         {
             return _repo.GetAll();
         }
-
+        [EnableCors("MyPolicy")]
         [HttpGet("GetAllWithHierarchies")]
         public IEnumerable<TopFive> GetAllWithHierarchies()
         {
@@ -61,25 +62,25 @@ namespace TopFiveManager.API.Controllers
         {
             return _repo.GetByDepartmentId(departmentId, DateTime.Now);
         }
-
+        [EnableCors("MyPolicy")]
         [HttpGet("GetByStatusId/{statusId}")]
         public IEnumerable<TopFive> GetByStatusId(int statusId)
         {
             return _repo.GetByStatusId(statusId, DateTime.Now);
         }
-
+        [EnableCors("MyPolicy")]
         [HttpPost("Update")]
         public TopFive Update(UpdateTopFive topFive)
         {
             return _repo.Update(topFive);
         }
-
+        [EnableCors("MyPolicy")]
         [HttpPost("Create")]
         public TopFive Create(NewTopFive topFive)
         {
             return _repo.Create(topFive);
         }
-
+        [EnableCors("MyPolicy")]
         [HttpPost("UpdateStatus")]
         public TopFive UpdateStatus(int id, int newStatusId)
         {
