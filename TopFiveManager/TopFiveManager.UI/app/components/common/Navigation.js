@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { Link, Location } from 'react-router';
-
+// import logo from './images/infotrack_logo.png'
 class Navigation extends Component {
 
     componentDidMount() {
@@ -26,8 +26,10 @@ class Navigation extends Component {
             <nav className="navbar-default navbar-static-side" role="navigation">
                     <ul className="nav metismenu" id="side-menu" ref="menu">
                         <li className="nav-header">
-                            <div className="dropdown profile-element"> <span>
-                             </span>
+                            <div className="dropdown profile-element"> 
+                                <span>
+                                    <img src="https://search.infotrack.com.au/Images/InfoTrackLogo_18px%20by%20216px.png" width="175" />
+                                </span>
                                
                                 <ul className="dropdown-menu animated fadeInRight m-t-xs">
                                     <li><a href="#"> Logout</a></li>
