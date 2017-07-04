@@ -3,8 +3,9 @@ import React from 'react';
 import Addform from './Addform'
 import Select from 'react-select';
 import Multiselect from './common/Multiselect'
+import { withRouter } from 'react-router'
 
-export default class AddTopFive extends React.Component {
+class AddTopFive extends React.Component {
 
     constructor(props) {
         super(props)
@@ -45,6 +46,7 @@ export default class AddTopFive extends React.Component {
         }).join('&')
 
         this.props.addNewTopFive(data)
+        this.props.router.push('/treeview')
         console.log('save');
     }
 
@@ -131,6 +133,8 @@ export default class AddTopFive extends React.Component {
     }
 }
 
+
+export default withRouter(AddTopFive)
 /*
 
  <div className="ibox float-e-margins">

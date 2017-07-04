@@ -17,21 +17,21 @@ export default class UpdateTopFive extends React.Component {
     }
 
     onChange(x) {
-        console.log(x)
         var state = this.state.assignees
         state[x] = 1
-        state.push(0);
-        console.log(state)
+        state.unshift(0);
         this.setState = {
-            assignee: state
-       }
+            assignees: state
+        }
+        this.forceUpdate()
+        console.log('sdf')
+        console.log(this.state.assignees)
     }
 
     componentDidMount(){
         var { list, selected } = this.props;
         var content = list.find(title => title.id == selected)
         if (content == null) return
-        console.log(content)
         var{ department, title, status, description } = this.refs
         title.value = content.name
         description.value = content.description
@@ -40,7 +40,6 @@ export default class UpdateTopFive extends React.Component {
     }
 
     renderAssignee(x){
-        console.log(x)
         return (
             <select type="text" className="form-control" key={"assignee-"+x} onChange={() =>this.onChange(x)}>
                 <option value="0">Assign Top 5..</option>
@@ -52,7 +51,6 @@ export default class UpdateTopFive extends React.Component {
     }
 
     assignees(){
-        console.log(this.state.assignees)
         var dom = this.state.assignees.map((x) => this.renderAssignee(x))
         return dom
     }
