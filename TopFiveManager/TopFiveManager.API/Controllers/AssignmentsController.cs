@@ -60,6 +60,12 @@ namespace TopFiveManager.API.Controllers
             return employees;
         }
 
+        [HttpPost("Assign")]
+        public void Assign(int employeeId, int topFiveId)
+        {
+            _assignmentRepo.Assign(employeeId, topFiveId);
+        }
+
         private void PopulateAssignments(IEnumerable<Employee> employees)
         {
             foreach (var employee in employees)
