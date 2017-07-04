@@ -60,6 +60,16 @@ namespace TopFiveManager.API.Controllers
             return employees;
         }
 
+        [HttpGet("GetAssignedEmployeesByTopFiveId/{topFiveId}")]
+        public IEnumerable<Employee> GetAssignedEmployeesByTopFiveId(int topFiveId)
+        {
+            var assignments = _assignmentRepo.GetByTopFiveId(topFiveId);
+
+            var employees = assignments.Select(a => _employeeRepo.GetById(a.EmployeeId));
+
+            return employees;
+        }
+
         [HttpPost("Assign")]
         public void Assign(int employeeId, int topFiveId)
         {
