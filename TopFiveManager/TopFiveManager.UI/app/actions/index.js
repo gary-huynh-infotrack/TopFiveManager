@@ -99,14 +99,6 @@ function sampleTierData(){
 }]
 }
 
-function callFetch(id){
-    var baseUrl = 'localhost:61222';
-    var relativeUrl = 'api/topfives'
-    var url = `${baseUrl}/{relativeUrl}/GetMyTopFives/${id}`
-    url = "https://jsonplaceholder.typicode.com/posts/1"
-    var res = axios.get(url)
-    return res;
-}
 
 export function getTopFives(id){
     return (dispatch) => {  
@@ -227,11 +219,12 @@ export function spinning(bool){
 }
 
 export function callFetch(id){
-    var baseUrl = 'localhost:61222';
+    var baseUrl = 'http://localhost:61222';
     var relativeUrl = 'api/topfives'
-    var url = `${baseUrl}/${relativeUrl}/GetMyTopFives/${id}`
+    var url = `${baseUrl}/${relativeUrl}/GetByEmployeeId/${id}`
     //url = "https://jsonplaceholder.typicode.com/posts/1"
-    var res = axios.get(url)
+    var res = axios.get(url
+    )
     return res;
 }
 

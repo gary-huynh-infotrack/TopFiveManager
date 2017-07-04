@@ -4,6 +4,7 @@ using TopFiveManager.DataAccess.Models;
 using TopFiveManager.DataAccess.Repo;
 using System;
 using System.Linq;
+using Microsoft.AspNetCore.Cors;
 
 namespace TopFiveManager.API.Controllers
 {
@@ -47,12 +48,14 @@ namespace TopFiveManager.API.Controllers
             return allTopFives.Where(t => t.ParentId == null);
         }
 
+        [EnableCors("MyPolicy")]
         [HttpGet("GetByEmployeeId/{employeeId}")]
         public IEnumerable<TopFive> GetByEmployeeId(int employeeId)
         {
             return _repo.GetByEmployeeId(employeeId, DateTime.Now);
         }
 
+        [EnableCors("MyPolicy")]
         [HttpGet("GetByDepartmentId/{departmentId}")]
         public IEnumerable<TopFive> GetByDepartmentId(int departmentId)
         {
