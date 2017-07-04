@@ -14,11 +14,53 @@ export default class DashboardBody extends React.Component {
     data = {
 	labels: [
 		'Completed',
-		'On Hold',
-		'Not started'
+		'Active',
+		'Cancelled'
 	],
 	datasets: [{
-		data: [300, 50, 100],
+		data: [300, 100, 50],
+		backgroundColor: [
+		'#a3e1d4',
+		'#9cc3da',
+		'#dedede'
+		],
+		hoverBackgroundColor: [
+		'#a3e1d4',
+		'#9cc3da',
+		'#dedede'
+		]
+	}]
+    };
+
+    dataByDepartment = {
+	labels: [
+		'Completed',
+		'Active',
+		'Cancelled'
+	],
+	datasets: [{
+		data: [200, 175, 75],
+		backgroundColor: [
+		'#a3e1d4',
+		'#9cc3da',
+		'#dedede'
+		],
+		hoverBackgroundColor: [
+		'#a3e1d4',
+		'#9cc3da',
+		'#dedede'
+		]
+	}]
+    };
+
+    dataByTeam = {
+	labels: [
+		'Completed',
+		'Active',
+		'Cancelled'
+	],
+	datasets: [{
+		data: [350, 50, 50],
 		backgroundColor: [
 		'#a3e1d4',
 		'#9cc3da',
@@ -98,7 +140,7 @@ data3  = {
                             <h5>By Department</h5>
                         </div>
                         <div className="ibox-content">     
-                            <Doughnut data={this.data} />                     
+                            <Doughnut data={this.dataByDepartment} />                     
                         </div>
                     </div>            
                 </div>
@@ -109,7 +151,7 @@ data3  = {
                             <h5>By Team</h5>
                         </div>
                         <div className="ibox-content">     
-                            <Doughnut data={this.data} />                     
+                            <Doughnut data={this.dataByTeam} />                     
                         </div>
                     </div>            
                 </div>
