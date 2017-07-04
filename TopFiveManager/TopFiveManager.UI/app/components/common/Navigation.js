@@ -50,9 +50,7 @@ class Navigation extends Component {
                         </li>
                         <li className={this.activeRoute("/addtopfiveview")}>
                             <Link to="/addtopfiveview"><i className="fa fa-plus"></i> <span className="nav-label">Add New Top 5</span></Link>
-                        </li>
-
-                            
+                        </li>                   
                     </ul>
 
             </nav>

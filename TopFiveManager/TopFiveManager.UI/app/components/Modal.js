@@ -1,18 +1,24 @@
 import React from 'react';
 
+import { Link, Location, To } from 'react-router';
 import Addform from './Addform'
 import Filterbar from './Filterbar'
 import TableviewLink from '../containers/TableviewLink'
 import ProgressRingLink from '../containers/ProgressRingLink'
-
-export default class Modal extends React.Component {
+import { withRouter } from 'react-router' 
+class Modal extends React.Component {
 
     constructor(props) {
         super(props)
+        this.onEdit = this.onEdit.bind(this)
     }
 
     complete(id) {
         this.props.complete(id);
+    }
+
+    onEdit(){
+        this.props.router.push('/edit')
     }
 
     render() {
@@ -23,7 +29,6 @@ export default class Modal extends React.Component {
             <div className="modal-dialog">
             </div>
         )
-        console.log(selected, list)
         var content = list.find(title => title.id == selected)
 
         var s = new Date(content.thirdStartDate);
@@ -63,7 +68,7 @@ export default class Modal extends React.Component {
                     <p>relates to:</p>                    
                 </div>
                 <div className="modal-footer">
-                    <button type="button" className="btn btn-primary" data-dismiss="modal">Edit</button>
+                    <button onClick={this.onEdit} type="button" className="btn btn-default" data-dismiss="modal">Edit</button>
                     <button type="button" className="btn btn-primary pull-left" data-dismiss="modal">Complete</button>
                     <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
@@ -72,3 +77,5 @@ export default class Modal extends React.Component {
         )
     }
 }
+
+export default withRouter(Modal)

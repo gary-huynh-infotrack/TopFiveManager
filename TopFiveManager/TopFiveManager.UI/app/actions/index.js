@@ -1,6 +1,7 @@
 import axios from 'axios'
 import thunk from 'redux-thunk';
-
+import React from 'react'
+import { Link, Location, To } from 'react-router';
 var baseUrl = 'http://localhost:61222';
 
 export function getAllHierarchy(){
@@ -25,10 +26,15 @@ export function updateTierStore(data){
     }
 }
 
+function dirtyUpdate(data){
+    
+}
+
 function recursiveTree(data){
     if (data == null) return
     var obj = {title:"", children:[]}
-    obj.title = data.name + " - " + data.description
+    
+    obj.title = (<Link to="/edit">{data.name} - {data.description}</Link>)
     if(data.children != null){
         for (var child of data.children)
             obj.children.push(recursiveTree(child))
@@ -108,6 +114,21 @@ export function getTopFiveByList(){
             })
             .then(success => {
                 dispatch(updateListStore(success))        
+            })
+            .catch(error => dispatch(errorSomething(error)))
+            .then(()=>dispatch(spinning(false)))
+    }
+}
+
+export function addNewTopFive(data){
+    console.log(data)
+    return (dispatch) => {  
+        return AddNewTopFive(data)
+            .then(response => {
+                return response.data
+            })
+            .then(success => {
+                //dispatch(updateListStore(success))        
             })
             .catch(error => dispatch(errorSomething(error)))
             .then(()=>dispatch(spinning(false)))
@@ -252,6 +273,13 @@ export function GetAllList(){
     var relativeUrl = 'api/TopFives'
     var url = `${baseUrl}/${relativeUrl}`
     var res = axios.get(url)
+    return res;
+}
+
+export function AddNewTopFive(data){
+    var relativeUrl = 'api/TopFives'
+    var url = `${baseUrl}/${relativeUrl}/Create`
+    var res = axios.post(url,data)
     return res;
 }
 

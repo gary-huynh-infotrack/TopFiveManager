@@ -1,11 +1,12 @@
 import { connect } from 'react-redux'
 import { add, getTopFives, completeTask, addNewTopFive } from '../actions/index'
-import AddTopFive from '../components/AddTopFive'
+import UpdateTopFive from '../components/UpdateTopFive'
 
 
 const mapStateToProps = (state, ownProps) =>{
     return {
-        list: state.personal
+        list: state.all,
+        selected: state.selected,
     }
 }
 
@@ -26,4 +27,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(AddTopFive)
+)(UpdateTopFive)

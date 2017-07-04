@@ -6,6 +6,8 @@ import DashboardView from '../views/Dashboard';
 import TopFiveView from '../views/TopFive';
 import TreeView from '../views/TreeView'
 import AddTopFiveView from '../views/AddTopFive';
+import UpdateTopFiveView from '../views/UpdateTopFive';
+
 
 import { Route, Router, IndexRedirect, browserHistory} from 'react-router';
 
@@ -17,7 +19,9 @@ export default (
             <Route path="topfives" component={TopFiveView}> </Route>
              <Route path="treeview" component={TreeView}> </Route>
             <Route path="addtopfiveview" component={AddTopFiveView}> </Route>
+          <Route path="edit" component={UpdateTopFiveView}> </Route>
         </Route>
     </Router>
+    
 
 );

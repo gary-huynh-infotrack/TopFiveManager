@@ -13,6 +13,7 @@ export default class AddTopFive extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)  
         this.handleChange = this.handleChange.bind(this)
+        this.onSave = this.onSave.bind(this);
     }
 
     commentList(){
@@ -29,6 +30,23 @@ export default class AddTopFive extends React.Component {
         this.setState({ comment : e.target.value})    
     }
 
+    onSave(){
+        var obj = {
+            Name: "hello",
+            Description: "test",
+            ParentId: 13,
+            AuthorId: 1,
+            StatusId: 1,
+            DepartmentId: 1
+        }
+            
+        let data = Object.keys(obj).map(function(k) {
+            return encodeURIComponent(k) + "=" + encodeURIComponent(obj[k]);
+        }).join('&')
+
+        this.props.addNewTopFive(data)
+        console.log('save');
+    }
 
     render() {
         var { list } = this.props;
@@ -72,10 +90,19 @@ export default class AddTopFive extends React.Component {
                                 <div className="col-md-5">
                                     <select type="text" className="form-control">
                                         <option>Select a status..</option>
-                                        <option>Under Assessment</option>
-                                        <option>To Do</option>
-                                        <option>In Progress</option>
-                                        <option>Done</option>
+                                        <option>Active</option>
+                                        <option>Complete</option>
+                                        <option>Cancel</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div className="form-group"><label className="col-md-3 control-label">Assignee</label>
+                                <div className="col-md-5">
+                                    <select type="text" className="form-control">
+                                        <option>Greg Grondecki</option>
+                                        <option>Daniel Cai</option>
+                                        <option>Gary Huynh</option>
                                     </select>
                                 </div>
                             </div>
@@ -87,7 +114,7 @@ export default class AddTopFive extends React.Component {
                                     </div>
 
                                     <div className="col-md-4">
-                                        <button type="button" className="btn btn-primary pull-right">Save</button>
+                                        <button onClick={() => this.onSave()} type="button" className="btn btn-primary pull-right">Save</button>
                                     </div>
                                  </div>
                             </div>
@@ -98,7 +125,15 @@ export default class AddTopFive extends React.Component {
 
                     
                 </div>
-                <div className="ibox float-e-margins">
+               
+            </div>
+        )
+    }
+}
+
+/*
+
+ <div className="ibox float-e-margins">
                     <div className="ibox-title">
                         <h5>Comment</h5>
                     </div>
@@ -111,7 +146,4 @@ export default class AddTopFive extends React.Component {
                             </div>
                     </div>
                 </div>
-            </div>
-        )
-    }
-}
+*/
