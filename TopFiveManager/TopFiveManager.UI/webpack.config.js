@@ -1,19 +1,19 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 var config = {
     entry: {
         app: [
-            'webpack-dev-server/client?http://localhost:8000',
             'webpack/hot/only-dev-server',
+            'webpack-hot-middleware/client',
             './app/index'
         ],
         vendor: []
     },
     devtool: 'eval',
     output: {
-        path: path.join(__dirname, '/public/'),
+        path: path.resolve(__dirname, 'public'),
         filename: 'bundle.js',
         publicPath: '/'
     },
@@ -30,7 +30,11 @@ var config = {
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js', Infinity),
         new webpack.DefinePlugin({
             "require.specified": "require.resolve"
-        })
+        }),
+        new HtmlWebpackPlugin({
+            title: "sad",
+            template: './public/index.html'
+        }),
     ],
     module: {
         noParse: [],

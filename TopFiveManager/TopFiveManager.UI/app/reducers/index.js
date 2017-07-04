@@ -47,9 +47,19 @@ function selected(state = selectedInitialState, action){
     }
 }
 
+function comment(state = {}, action){
+    switch(action.type){
+        case 'ADD_ROW':
+            return Object.assign({}, action.payload)
+        default:
+            return state;
+    }
+}
+
 const App = combineReducers({
     personal,
     hierarchy,
-    selected
+    selected,
+    comment
 })
 export default App;

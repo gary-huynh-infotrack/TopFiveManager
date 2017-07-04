@@ -8,6 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc.Cors.Internal;
+
 namespace TopFiveManager.API
 {
     public class Startup
@@ -34,6 +37,16 @@ namespace TopFiveManager.API
                 c.SwaggerDoc("v1", new Info { Title = "Top 5 Manager API", Version = "v1" });
             });
             services.AddMvcCore().AddApiExplorer();
+
+            // ********************
+            // Setup CORS
+            // ********************
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
